@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleto del Cine por Edad</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Descuento de Estudiante en Cine</h1>
+    <div class="mensaje">
+        <script>
+            // Declarar Variables
+            var precioboleto = parseFloat(prompt("Ingrese el precio del Boleto"));
+            var edad = parseFloat(prompt("Ingrese su edad"));
+
+            // Operaciones
+            var descuento;
+            if (edad <= 12) {
+                descuento = precioboleto - (precioboleto * 0.4);
+                document.write("El descuento es del 40%, pagando en total: " + descuento.toFixed(2) + " Lps");
+            } else if (edad <= 21) {
+                var estudiante = prompt("¿Es usted estudiante? (si/no)");
+                if (estudiante.toLowerCase() === "si") {
+                    descuento = precioboleto - (precioboleto * 0.3);
+                    document.write("El descuento es del 30%, pagando en total: " + descuento.toFixed(2) + " Lps");
+                } else {
+                    document.write("Descuento de estudiante no aplica, paga completo: " + precioboleto.toFixed(2) + " Lps");
+                }
+            } else if (edad >= 60) {
+                descuento = precioboleto - (precioboleto * 0.5);
+                document.write("El descuento es del 50%, pagando en total: " + descuento.toFixed(2) + " Lps");
+            } else if (edad > 21 && edad < 60) {
+                document.write("Usted paga Precio Completo: " + precioboleto.toFixed(2) + " Lps");
+            } else {
+                document.write("Ingrese un valor de edad adecuado");
+            }
+        </script>
+    </div>
+</body>
+</html>
